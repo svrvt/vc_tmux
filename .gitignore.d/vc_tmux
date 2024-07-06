@@ -1,5 +1,8 @@
 *
 !/.config
+!/.config/mr
+!/.config/mr/available.d
+!/.config/mr/available.d/vc_tmux
 !/.config/tmux
 !/.config/tmux/tmux.conf
 !/.config/tmux/tmux.conf.local
