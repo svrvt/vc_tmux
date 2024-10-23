@@ -7,5 +7,6 @@
 !/.config/tmux
 !/.config/tmux/tmux.conf
 !/.config/tmux/tmux.conf.local
+!/.config/tmux/treemux_ima.lua
 !/.gitignore.d
 !/.gitignore.d/vc_tmux

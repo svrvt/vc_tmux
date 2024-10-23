@@ -374,7 +374,10 @@ tmux_conf_copy_to_os_clipboard=false
 # bind c new-window -c '#{pane_current_path}' #!important
 
 # move status line to top
-#set -g status-position top
+set -g status-position bottom
+
+set -g pane-border-status bottom
+set -g pane-border-format ' .#P (#D) #{pane_current_command} '
 
 
 # -- tpm -----------------------------------------------------------------------
@@ -425,8 +428,20 @@ tmux_conf_uninstall_plugins_on_reload=true
 # set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-newsboat'
 # set -g @resurrect-capture-pane-contents 'on'
-set -g @treemux-tree-nvim-init-file '~/.config/tmux/plugins/treemux/configs/treemux_init.lua'
+
+# set -g @treemux-tree-nvim-init-file '~/.config/tmux/plugins/treemux/configs/treemux_init.lua'
+set -g @treemux-tree-nvim-init-file '~/.config/tmux/treemux_ima.lua'
 set -g @plugin 'kiyoon/treemux'
+
+set -g @treemux-tree-width 30
+# set -g @treemux-editor-size '80%'
+set -g @treemux-tree-position 'right'
+# set -g @treemux-enable-debug-pane 1
+
+
+# set -g @treemux-tree 'l'
+# set -g @treemux-open-focus 'tree'
+# set -g @treemux-tree-focus 'k'
 
 # set -g @continuum-restore 'on'
 
@@ -469,8 +484,9 @@ setw -g mode-keys vi
 
 # bindings
 # Основной префикс
-set-option -g prefix C-Space
-bind-key C-Space send-prefix
+# set-option -g prefix C-Space
+set-option -g prefix F10
+bind-key F10 send-prefix
 
 # Сортировка по имени
 bind s choose-tree -sZ -O name
@@ -492,7 +508,7 @@ bind-key -n M-w new-window
 bind-key -n M-x confirm-before -p "kill-window #W? (y/n)" kill-window
 
 # Fast toggle (normally prefix-l).
-bind-key -n M-Tab last-window
+# bind-key -n M-Tab last-window
 
 # Set easier window split keys
 # bind-key -n M- split-window -h
