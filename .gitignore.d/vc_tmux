@@ -2,8 +2,7 @@
 !/.config
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/vc
-!/.config/mr/available.d/vc/vc_tmux
+!/.config/mr/available.d/workflow.vc.tmux
 !/.config/tmux
 !/.config/tmux/tmux.conf
 !/.config/tmux/tmux.conf.local
