@@ -485,8 +485,8 @@ setw -g mode-keys vi
 # bindings
 # Основной префикс
 # set-option -g prefix C-Space
-set-option -g prefix F10
-bind-key F10 send-prefix
+set-option -g prefix F2
+bind-key F2 send-prefix
 
 # Сортировка по имени
 bind s choose-tree -sZ -O name
