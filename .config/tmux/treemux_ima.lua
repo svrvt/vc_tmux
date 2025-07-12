@@ -1,5 +1,5 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.env.GIT_CONFIG_GLOBAL = ""
+
 
 -- Remove the white status bar below
 vim.o.laststatus = 0
@@ -66,7 +66,7 @@ local function nvim_tree_on_attach(bufnr)
 	vim.keymap.set("n", "<C-v>", nt_remote.vsplit, opts("Vsplit in treemux"))
 	vim.keymap.set("n", "<C-x>", nt_remote.split, opts("Split in treemux"))
 
-	vim.keymap.set("n", ".", api.tree.toggle_hidden_filter, opts "Open/close hidden")
+	vim.keymap.set("n", ".", api.tree.toggle_hidden_filter, opts("Open/close hidden"))
 	-- vim.keymap.set("n", "n", api.marks.navigate.next, opts "")
 	-- vim.keymap.set("n", "s", api.marks.navigate.select, opts "")
 	vim.keymap.set("n", "w", api.node.run.system, opts("Open in new window"))
@@ -86,7 +86,7 @@ end
 
 require("lazy").setup({
 	{
-		"kiyoon/tmuxsend.vim",
+		"kiyoon/tmux-send.nvim",
 		keys = {
 			{ "-", "<Plug>(tmuxsend-smart)", mode = { "n", "x" } },
 			{ "_", "<Plug>(tmuxsend-plain)", mode = { "n", "x" } },
@@ -136,7 +136,6 @@ require("lazy").setup({
 							},
 						},
 					},
-					hidden_display = "all",
 				},
 				diagnostics = {
 					enable = true,
@@ -175,7 +174,24 @@ require("lazy").setup({
 			})
 		end,
 	},
+}, {
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				-- List of default plugins can be found here
+				-- https://github.com/neovim/neovim/tree/master/runtime/plugin
+				"gzip",
+				"matchit", -- Extended %. replaced by vim-matchup
+				"matchparen", -- Highlight matching paren. replaced by vim-matchup
+				"netrwPlugin", -- File browser. replaced by nvim-tree, neo-tree, oil.nvim
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 })
 
-vim.cmd([[ colorscheme tokyonight-night ]])
+--vim.cmd([[ colorscheme tokyonight-night ]])
 vim.o.cursorline = true
